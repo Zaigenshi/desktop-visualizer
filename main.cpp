@@ -13,8 +13,8 @@
 #include "input/pulse.cpp"
 
 float fps = 60;
-int MAX_HEIGHT = 256;
-int WINDOW_WIDTH = 1024;
+int MAX_HEIGHT = 456;
+int WINDOW_WIDTH = 550;
 float bars[42];
 
 Window TransparentWindow () {
@@ -33,10 +33,10 @@ Window TransparentWindow () {
   attr.override_redirect = true;
   wnd = XCreateWindow(
     display, DefaultRootWindow(display),
-    (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / 2),
+    (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / .36),
     sf::VideoMode::getDesktopMode().height - (MAX_HEIGHT * 2),
     WINDOW_WIDTH,
-    MAX_HEIGHT * 2,
+    MAX_HEIGHT * 1.6,
     0,
     visualinfo.depth,
     InputOutput,
@@ -81,8 +81,8 @@ void draw(sf::RenderWindow* window) {
     float posY = (s.y / 2) - (height / 2);
 
     sf::RectangleShape rect(sf::Vector2f(width, height));
-    rect.setPosition(sf::Vector2f(width * i, posY));
-    rect.setFillColor(sf::Color(0, 255, 255, 255 * bar));
+    rect.setPosition(sf::Vector2f(width * i * 1.5, posY));
+    rect.setFillColor(sf::Color(255, 255, 255, 150));
 
     window->draw(rect);
   }
@@ -166,7 +166,7 @@ int main () {
       } else {
         bars[i] -= 1 / fps;
       }
-      if (bars[i] < 0) bars[i] = 0;
+      if (bars[i] < 0) bars[i] = .01;
     }
 
     // Render
