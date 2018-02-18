@@ -36,7 +36,7 @@ Window TransparentWindow () {
     (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / .38),
     sf::VideoMode::getDesktopMode().height - (MAX_HEIGHT * 2),
     WINDOW_WIDTH,
-    MAX_HEIGHT * 1.6,
+    MAX_HEIGHT * 1.7,
     0,
     visualinfo.depth,
     InputOutput,
