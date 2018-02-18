@@ -1,7 +1,7 @@
 # desktop-visualizer
 Linux Desktop Music visualizer made with SFML
 
-![](screenshot.png)
+![](visualizer.gif)
 
 It's not quite customizable yet.
 
