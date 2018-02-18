@@ -14,7 +14,7 @@
 
 float fps = 60;
 int MAX_HEIGHT = 456;
-int WINDOW_WIDTH = 550;
+int WINDOW_WIDTH = 600;
 float bars[42];
 
 Window TransparentWindow () {
@@ -33,7 +33,7 @@ Window TransparentWindow () {
   attr.override_redirect = true;
   wnd = XCreateWindow(
     display, DefaultRootWindow(display),
-    (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / .36),
+    (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / .38),
     sf::VideoMode::getDesktopMode().height - (MAX_HEIGHT * 2),
     WINDOW_WIDTH,
     MAX_HEIGHT * 1.6,
