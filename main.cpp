@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fftw3.h>
 #include <pthread.h>
+#include <string>
+#include <pwd.h>
 #include <math.h>
 #include <time.h>
 #include <SFML/Graphics.hpp>
@@ -11,10 +13,23 @@
 #include "util.cpp"
 #include "input/pulse.h"
 #include "input/pulse.cpp"
+#include "inih/INIReader.h"
 
+//Read config file
+INIReader reader(std::getenv("HOME") + std::string("/.config/deskvis/config.ini"));
+int h = reader.GetInteger("Size", "Height", 456);
+int w = reader.GetInteger("Size", "Width", 600);
+float ph = reader.GetReal("Position", "Horizontal", 0);
+float pv = reader.GetReal("Position", "Vertical", 1.7);
+int r = reader.GetInteger("Color", "Red", 255);
+int g = reader.GetInteger("Color", "Green", 255);
+int b = reader.GetInteger("Color", "Blue", 255);
+int a = reader.GetInteger("Color", "Alpha", 150);
+
+//Pre-config file
 float fps = 60;
-int MAX_HEIGHT = 456;
-int WINDOW_WIDTH = 600;
+int MAX_HEIGHT = h;
+int WINDOW_WIDTH = w;
 float bars[42];
 
 Window TransparentWindow () {
@@ -33,17 +48,17 @@ Window TransparentWindow () {
   attr.override_redirect = true;
   wnd = XCreateWindow(
     display, DefaultRootWindow(display),
-    (sf::VideoMode::getDesktopMode().width / 2) - (WINDOW_WIDTH / .38),
-    sf::VideoMode::getDesktopMode().height - (MAX_HEIGHT * 2),
+    (sf::VideoMode::getDesktopMode().width / -1) + (ph * 100),
+    (sf::VideoMode::getDesktopMode().height / -1) + (pv * 100),
     WINDOW_WIDTH,
-    MAX_HEIGHT * 1.7,
+    MAX_HEIGHT,
     0,
     visualinfo.depth,
     InputOutput,
     visualinfo.visual,
     CWColormap|CWEventMask|CWBackPixmap|CWBorderPixel,
     &attr
-  );
+);
   gc = XCreateGC(display, wnd, 0, 0);
   XStoreName(display, wnd, "Visualizer");
 
@@ -74,6 +89,25 @@ void draw(sf::RenderWindow* window) {
   sf::Vector2u s = window->getSize();
   window->clear(sf::Color::Transparent);
   
+// check for invalid color value
+  if (r > 255){
+    r = 255;
+  };
+
+  if (g > 255){
+    g = 255;
+  };
+
+  if (b > 255){
+    b = 255;
+  };
+
+  if (a > 255){
+    a = 255;
+  }; 
+
+//end check and set color values
+
   for (i = 0; i < 42; i++) {
     float bar = bars[i];
     float width = (float)s.x / (float)42;
@@ -82,7 +116,7 @@ void draw(sf::RenderWindow* window) {
 
     sf::RectangleShape rect(sf::Vector2f(width, height));
     rect.setPosition(sf::Vector2f(width * i * 1.5, posY));
-    rect.setFillColor(sf::Color(255, 255, 255, 150));
+    rect.setFillColor(sf::Color(r, g, b, a));
 
     window->draw(rect);
   }

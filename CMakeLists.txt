@@ -5,7 +5,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 project("Desktop Visualizer")
-set(EXECUTABLE_NAME "tblvis")
+set(EXECUTABLE_NAME "deskvis")
 
 add_executable(${EXECUTABLE_NAME} main.cpp)
 
@@ -35,3 +35,6 @@ find_package(Threads)
 target_link_libraries (${EXECUTABLE_NAME} ${CMAKE_THREAD_LIBS_INIT})
 
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
+install(DIRECTORY DESTINATION $ENV{HOME}/.config/deskvis/ DIRECTORY_PERMISSIONS WORLD_READ WORLD_WRITE WORLD_EXECUTE)
+install(FILES config.ini PERMISSIONS WORLD_READ WORLD_WRITE WORLD_EXECUTE DESTINATION $ENV{HOME}/.config/deskvis/)
+
