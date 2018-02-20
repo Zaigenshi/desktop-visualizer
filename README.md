@@ -19,5 +19,6 @@ Snippets of code from [cava](https://github.com/karlstav/cava) and [conky](https
 $ mkdir build && cd build
 $ cmake ..
 $ make
+$ sudo make install
 ```
 
