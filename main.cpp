@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fftw3.h>
 #include <pthread.h>
+#include <string>
+#include <pwd.h>
 #include <math.h>
 #include <time.h>
 #include <SFML/Graphics.hpp>
@@ -13,8 +15,12 @@
 #include "input/pulse.cpp"
 #include "inih/INIReader.h"
 
+//Get home dir
+std::string cdir = std::getenv("HOME");
+cdir += "/.config/deskvis/config.ini";
+
 //Read config file
-INIReader reader("config.ini");
+INIReader reader(cdir);
 int h = reader.GetInteger("Size", "Height", 456);
 int w = reader.GetInteger("Size", "Width", 600);
 float ph = reader.GetReal("Position", "Horizontal", 0);
@@ -24,6 +30,7 @@ int g = reader.GetInteger("Color", "Green", 255);
 int b = reader.GetInteger("Color", "Blue", 255);
 int a = reader.GetInteger("Color", "Alpha", 150);
 
+//pre-config file
 float fps = 60;
 int MAX_HEIGHT = h;
 int WINDOW_WIDTH = w;
