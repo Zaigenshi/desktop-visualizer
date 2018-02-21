@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=deskvis
+Exec=/usr/local/bin/deskvis
+Terminal=false
+Type=Application
+X-GNOME-Autostart-enabled=true
