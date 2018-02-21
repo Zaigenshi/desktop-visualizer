@@ -41,4 +41,3 @@ X-GNOME-Autostart-enabled=true
 
  - to:```~/.config/autostart/```
 
-
