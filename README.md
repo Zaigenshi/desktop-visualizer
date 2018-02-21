@@ -3,9 +3,7 @@ Linux Desktop Music visualizer made with SFML
 
 ![](visualizer.gif)
 
-Based on [TheBITLINK's](https://github.com/TheBITLINK/desktop-visualizer) desktop-visualizer.
-
-Snippets of code from [Cava](https://github.com/karlstav/cava) and [Conky](https://github.com/brndnmtthws/conky) are also used.
+Based on [Cava](https://github.com/karlstav/cava), [Conky](https://github.com/brndnmtthws/conky), [TheBITLINK's](https://github.com/TheBITLINK/desktop-visualizer) desktop-visualizer.
 
 # Dependencies
 
@@ -39,5 +37,5 @@ Type=Application
 X-GNOME-Autostart-enabled=true 
 ```
 
-to:```~/.config/autostart/```
+to: ```~/.config/autostart/```
 
