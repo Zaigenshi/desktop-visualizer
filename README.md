@@ -28,7 +28,7 @@ $ sudo make install
 
 # Automatic Startup
 
- - To automatically start the visualizer on login add a deskvis.desktop containing the following:
+To automatically start the visualizer on login add a deskvis.desktop containing the following:
 
 ```
 [Desktop Entry]
@@ -39,5 +39,5 @@ Type=Application
 X-GNOME-Autostart-enabled=true 
 ```
 
- - to:```~/.config/autostart/```
+to:```~/.config/autostart/```
 
