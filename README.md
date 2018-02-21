@@ -22,7 +22,7 @@ $ sudo make install
 
 # Configuration
 
- - The configuration file is located in ```~/.config/deskvis/config.ini```
+The configuration file is located in ```~/.config/deskvis/config.ini```
 
 # Automatic Startup
 
