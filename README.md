@@ -3,7 +3,7 @@ Linux Desktop Music visualizer made with SFML
 
 ![](visualizer.gif)
 
-Based on [Cava](https://github.com/karlstav/cava), [Conky](https://github.com/brndnmtthws/conky), [TheBITLINK's](https://github.com/TheBITLINK/desktop-visualizer) desktop-visualizer.
+Based on [Cava](https://github.com/karlstav/cava), [Conky](https://github.com/brndnmtthws/conky), and [TheBITLINK's](https://github.com/TheBITLINK/desktop-visualizer) desktop-visualizer.
 
 # Dependencies
 
